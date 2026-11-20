@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>120 PROJECT · 중소 제조 MES·스마트공장 컨설팅</title>
-<meta name="description" content="자동차부품 제조 현장 20년, MES 구축 4회. 중소 제조기업의 MES·스마트공장·업무개선을 현장 눈높이로 돕는 120 PROJECT.">
+<meta name="description" content="무료 MES 현황 진단 — 30분 인터뷰 후 3영업일 안에 현황 진단 1장과 추천 범위를 보내 드립니다. 자동차부품 제조 현장 20년, MES 구축·고도화 4회.">
+<meta property="og:title" content="120 PROJECT · 무료 MES 현황 진단">
+<meta property="og:description" content="멈춘 MES는 다시 돌리고, 처음이라면 제대로 시작합니다. 중소 제조 MES·스마트공장 컨설팅.">
+<meta property="og:url" content="https://120project.kr">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
@@ -17,110 +20,192 @@
   html{scroll-behavior:smooth}
   body{font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
   .num{font-family:'Inter',sans-serif;letter-spacing:-0.04em}
 
-  /* nav */
-  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
   .logo{display:flex;align-items:center;gap:8px;font-weight:900}
-  .logo .num{color:var(--green);font-size:26px}
+  .logo .num{color:var(--green);font-size:25px}
   .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--lime)}
   .logo small{font-size:12px;letter-spacing:.25em;color:var(--sub);font-weight:700}
-  nav{display:flex;gap:26px;font-size:15px;font-weight:500;color:var(--sub)}
+  nav{display:flex;gap:22px;font-size:15px;font-weight:500;color:var(--sub)}
   nav a:hover{color:var(--green)}
-  .btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;padding:12px 22px;border-radius:999px;font-size:15px;border:0;cursor:pointer;font-family:inherit}
+  .btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;padding:13px 22px;border-radius:999px;font-size:15px;border:0;cursor:pointer;font-family:inherit;text-align:center}
   .btn:hover{background:var(--green-dk)}
   .btn.ghost{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+  .btn.white{background:#fff;color:var(--green)}
   .btn.sm{padding:9px 16px;font-size:14px}
-  @media(max-width:760px){nav{display:none}}
+  @media(max-width:860px){nav{display:none}}
 
   /* hero */
-  .hero{position:relative;overflow:hidden;background:var(--bg);padding:96px 0 104px}
-  .hero::before{content:"";position:absolute;right:-160px;top:-160px;width:560px;height:560px;border-radius:50%;background:var(--mint)}
-  .hero svg.curve{position:absolute;right:0;bottom:0;width:58%;height:100%;pointer-events:none}
+  .hero{position:relative;overflow:hidden;background:var(--bg);padding:80px 0 88px}
+  .hero::before{content:"";position:absolute;right:-160px;top:-160px;width:540px;height:540px;border-radius:50%;background:var(--mint)}
+  .hero svg.curve{position:absolute;right:0;bottom:0;width:56%;height:100%;pointer-events:none}
   .hero .wrap{position:relative}
-  .eyebrow{font-size:14px;letter-spacing:.35em;font-weight:700;color:var(--ink)}
-  .big{font-size:clamp(96px,18vw,180px);line-height:.95;color:var(--green);font-weight:900;margin:14px 0 26px}
-  .hero h1{font-size:clamp(24px,3.4vw,36px);font-weight:900;line-height:1.35;margin-bottom:14px}
+  .eyebrow{font-size:13px;letter-spacing:.35em;font-weight:700}
+  .big{font-size:clamp(88px,16vw,160px);line-height:.95;color:var(--green);font-weight:900;margin:12px 0 22px}
+  .hero h1{font-size:clamp(25px,3.6vw,38px);font-weight:900;line-height:1.35;margin-bottom:14px}
   .hero h1 em{font-style:normal;color:var(--green)}
-  .hero p.lead{font-size:clamp(16px,2vw,19px);color:var(--sub);max-width:560px;margin-bottom:30px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
-  .chip{background:#fff;color:var(--green);font-weight:700;font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid var(--mint)}
+  .hero p.lead{font-size:clamp(16px,2vw,18px);color:var(--sub);max-width:560px;margin-bottom:26px}
+  .free{background:#fff;border:1.5px solid var(--green);border-radius:20px;padding:20px 22px;max-width:560px;margin-bottom:26px;box-shadow:0 10px 30px rgba(31,138,76,.10)}
+  .free .tag{display:inline-block;background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+  .free b{display:block;font-size:19px;font-weight:900;margin-bottom:4px}
+  .free p{font-size:15px;color:var(--sub)}
+  .free p strong{color:var(--ink)}
   .cta{display:flex;gap:10px;flex-wrap:wrap}
 
-  section{padding:96px 0}
+  section{padding:88px 0}
+  .alt{background:var(--bg)}
   .sec-label{font-size:13px;letter-spacing:.3em;font-weight:700;color:var(--green);margin-bottom:10px}
-  h2{font-size:clamp(26px,3.6vw,38px);font-weight:900;line-height:1.3;margin-bottom:16px}
-  .sec-lead{color:var(--sub);font-size:17px;max-width:640px;margin-bottom:48px}
+  h2{font-size:clamp(25px,3.6vw,36px);font-weight:900;line-height:1.3;margin-bottom:14px}
+  .sec-lead{color:var(--sub);font-size:16.5px;max-width:660px;margin-bottom:42px}
+  .foot{font-size:13px;color:var(--sub);margin-top:22px}
 
-  /* pain */
-  .pain{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-  .pain div{border:1px solid var(--line);border-radius:16px;padding:22px 22px 22px 52px;position:relative;font-weight:500}
-  .pain div::before{content:"?";position:absolute;left:18px;top:20px;width:22px;height:22px;border-radius:50%;background:var(--mint);color:var(--green);font-weight:900;font-size:13px;display:grid;place-items:center}
+  /* failure patterns */
+  .pain{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .pain div{border:1px solid var(--line);border-radius:16px;padding:20px 20px 20px 58px;position:relative;background:#fff}
+  .pain .n{position:absolute;left:18px;top:19px;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--green);font-family:'Inter';font-weight:900;font-size:13px;display:grid;place-items:center}
+  .pain h4{font-size:16px;font-weight:900;margin-bottom:2px}
+  .pain p{font-size:14.5px;color:var(--sub)}
+
+  /* free diagnosis */
+  .diag{display:grid;grid-template-columns:1.1fr 1fr;gap:22px}
+  @media(max-width:860px){.diag{grid-template-columns:1fr}}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px}
+  .panel h3{font-size:18px;font-weight:900;margin-bottom:14px}
+  .areas{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .areas span{background:var(--mint);color:var(--green-dk);font-weight:700;font-size:14px;padding:6px 12px;border-radius:999px}
+  .get{list-style:none}
+  .get li{padding:12px 0;border-top:1px solid var(--line);display:flex;gap:12px}
+  .get li:first-child{border-top:0;padding-top:0}
+  .get .k{flex:none;width:30px;height:30px;border-radius:10px;background:var(--green);color:#fff;font-family:'Inter';font-weight:900;font-size:13px;display:grid;place-items:center}
+  .get b{display:block;font-size:15.5px}
+  .get span{font-size:14px;color:var(--sub)}
+  .scope{width:100%;border-collapse:collapse;font-size:14.5px}
+  .scope th{text-align:left;padding:10px 12px;font-size:13px;letter-spacing:.08em}
+  .scope th.f{background:var(--green);color:#fff;border-radius:10px 0 0 0}
+  .scope th.p{background:var(--ink);color:#fff;border-radius:0 10px 0 0}
+  .scope td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;width:50%}
+  .scope td.f{background:#F3FAF1}
+  .note{font-size:13.5px;color:var(--sub);margin-top:14px}
+
+  /* states */
+  .states{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .st{background:#fff;border-radius:20px;border:1px solid var(--line);padding:26px;position:relative;overflow:hidden}
+  .st .lt{font-family:'Inter';font-weight:900;font-size:44px;color:var(--mint);position:absolute;right:18px;top:6px;line-height:1}
+  .st h3{font-size:18px;font-weight:900;margin-bottom:4px;position:relative}
+  .st .desc{color:var(--sub);font-size:14.5px;margin-bottom:16px}
+  .st dl{font-size:14px}
+  .st dt{font-size:12px;letter-spacing:.12em;color:var(--green);font-weight:700;margin-top:10px}
+  .st dd{font-weight:500}
+
+  /* cases */
+  .method{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-18px 0 34px;font-weight:700;font-size:15px}
+  .method span{background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:999px}
+  .method i{color:var(--green);font-style:normal}
+  .cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .case{background:#fff;border-radius:20px;border:1px solid var(--line);padding:24px;display:flex;flex-direction:column}
+  .case .who{font-size:12.5px;color:var(--green);font-weight:700;letter-spacing:.04em}
+  .case h3{font-size:17px;font-weight:900;margin:4px 0 14px;line-height:1.4}
+  .case .kpi{font-family:'Inter';font-weight:900;color:var(--green);font-size:30px;line-height:1.1;letter-spacing:-.03em}
+  .case .kpi small{font-family:'Noto Sans KR';font-size:14px;color:var(--ink);font-weight:700;letter-spacing:0;display:block;margin-top:4px}
+  .case ul{list-style:none;margin-top:14px;font-size:14px;color:var(--sub);border-top:1px solid var(--line);padding-top:12px}
+  .case li{padding-left:14px;position:relative;margin:4px 0}
+  .case li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--lime)}
 
   /* services */
-  .alt{background:var(--bg)}
-  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  .card{background:#fff;border-radius:20px;padding:30px 26px;border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,138,76,.10)}
-  .card .ico{width:46px;height:46px;border-radius:14px;background:var(--mint);display:grid;place-items:center;margin-bottom:18px}
-  .card h3{font-size:19px;font-weight:900;margin-bottom:8px}
-  .card p{color:var(--sub);font-size:15px;margin-bottom:14px}
-  .card ul{list-style:none;font-size:14px;color:var(--ink)}
-  .card li{padding-left:16px;position:relative;margin:4px 0}
-  .card li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--lime)}
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .card{background:#fff;border-radius:20px;padding:26px 24px;border:1px solid var(--line)}
+  .card.hl{border:1.5px solid var(--green);background:#F7FCF5}
+  .card .pr{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--bg);color:var(--sub);margin-bottom:12px}
+  .card.hl .pr{background:var(--green);color:#fff}
+  .card h3{font-size:18px;font-weight:900;margin-bottom:6px}
+  .card p{color:var(--sub);font-size:14.5px;margin-bottom:12px}
+  .card ul{list-style:none;font-size:14px}
+  .card li{padding-left:14px;position:relative;margin:4px 0}
+  .card li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--lime)}
+  .mods{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 24px}
+  .mods h4{font-size:15px;font-weight:900;margin-bottom:12px}
+  .mods div{display:flex;flex-wrap:wrap;gap:8px}
+  .mods span{font-size:13.5px;border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+  .mods span b{color:var(--green);font-family:'Inter';margin-right:4px}
 
   /* process */
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;counter-reset:s}
-  .step{padding:26px 22px;border-top:3px solid var(--mint);position:relative}
-  .step:first-child{border-top-color:var(--green)}
-  .step .n{font-family:'Inter';font-weight:900;color:var(--green);font-size:15px;margin-bottom:6px}
-  .step h4{font-size:19px;font-weight:900;margin-bottom:6px}
-  .step p{color:var(--sub);font-size:15px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+  .step{padding:22px 18px 22px 0;border-top:3px solid var(--mint)}
+  .step.on{border-top-color:var(--green)}
+  .step .n{font-family:'Inter';font-weight:900;color:var(--green);font-size:14px;margin-bottom:4px}
+  .step h4{font-size:17px;font-weight:900;margin-bottom:4px}
+  .step h4 .fr{font-size:11.5px;background:var(--green);color:#fff;padding:2px 7px;border-radius:999px;vertical-align:2px;margin-left:4px}
+  .step p{color:var(--sub);font-size:14px}
+
+  /* principles */
+  .prin{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .prin div{border-left:3px solid var(--green);background:#fff;padding:16px 18px;border-radius:0 14px 14px 0}
+  .prin b{display:block;font-size:15.5px;margin-bottom:2px}
+  .prin span{font-size:14px;color:var(--sub)}
 
   /* about */
-  .about{display:grid;grid-template-columns:1fr 1.35fr;gap:48px;align-items:start}
-  @media(max-width:820px){.about{grid-template-columns:1fr}}
+  .about{display:grid;grid-template-columns:1fr 1.35fr;gap:44px;align-items:start}
+  @media(max-width:860px){.about{grid-template-columns:1fr}}
   .profile{background:#fff;border-radius:22px;border:1px solid var(--line);overflow:hidden}
   .profile .top{height:8px;background:var(--green)}
-  .profile .body{padding:30px}
-  .profile .name{font-size:32px;font-weight:900}
+  .profile .body{padding:28px}
+  .profile .name{font-size:30px;font-weight:900}
   .profile .en{color:var(--sub);font-size:15px;margin-left:6px;font-weight:500}
-  .profile .role{color:var(--green);letter-spacing:.18em;font-size:13px;font-weight:700;margin:6px 0 22px}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
-  .stats div{background:var(--bg);border-radius:14px;padding:14px 8px;text-align:center}
-  .stats b{display:block;font-family:'Inter';font-size:26px;color:var(--green);font-weight:900;line-height:1.1}
+  .profile .role{color:var(--green);letter-spacing:.18em;font-size:12.5px;font-weight:700;margin:6px 0 20px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+  .stats div{background:var(--bg);border-radius:14px;padding:14px 6px;text-align:center}
+  .stats b{display:block;font-family:'Inter';font-size:25px;color:var(--green);font-weight:900;line-height:1.1}
   .stats span{font-size:12px;color:var(--sub)}
   .certs{display:flex;flex-wrap:wrap;gap:6px}
   .certs span{font-size:12.5px;background:var(--mint);color:var(--green-dk);padding:5px 10px;border-radius:999px;font-weight:500}
   .timeline{list-style:none;border-left:2px solid var(--mint);padding-left:24px}
-  .timeline li{position:relative;margin-bottom:26px}
+  .timeline li{position:relative;margin-bottom:22px}
   .timeline li::before{content:"";position:absolute;left:-31px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--green)}
   .timeline .yr{font-family:'Inter';font-weight:800;color:var(--green);font-size:14px}
-  .timeline h4{font-size:17px;font-weight:900;margin:2px 0}
-  .timeline p{color:var(--sub);font-size:15px}
+  .timeline h4{font-size:16px;font-weight:900;margin:2px 0}
+  .timeline p{color:var(--sub);font-size:14.5px}
 
   /* model */
-  .model{background:var(--green);color:#fff;border-radius:28px;padding:56px 44px;position:relative;overflow:hidden}
+  .model{background:var(--green);color:#fff;border-radius:28px;padding:52px 40px;position:relative;overflow:hidden}
   .model::after{content:"120";position:absolute;right:-10px;bottom:-60px;font-family:'Inter';font-weight:900;font-size:240px;color:rgba(255,255,255,.07);line-height:1}
   .model .sec-label{color:var(--lime)}
-  .model p{max-width:620px;opacity:.92;font-size:17px}
-  .model .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;position:relative;z-index:1}
+  .model p{max-width:620px;opacity:.92;font-size:16.5px}
+  .model .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;position:relative;z-index:1}
   .model .pills span{border:1px solid rgba(255,255,255,.35);padding:7px 14px;border-radius:999px;font-size:14px}
 
   /* contact */
-  .contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  @media(max-width:760px){.contact{grid-template-columns:1fr}}
-  .cbox{border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .cbox small{display:block;font-size:12px;letter-spacing:.2em;color:var(--green);font-weight:700}
-  .cbox .v{font-size:20px;font-weight:700;font-family:'Inter',sans-serif;letter-spacing:-0.01em}
-  .note{margin-top:18px;color:var(--sub);font-size:15px}
-  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:.25s;pointer-events:none}
-  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+  .ask{background:var(--ink);color:#fff;border-radius:28px;padding:44px 36px}
+  .ask h2{color:#fff}
+  .ask .sec-label{color:var(--lime)}
+  .ask .sec-lead{color:rgba(255,255,255,.75)}
+  .ask-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.ask-grid{grid-template-columns:1fr}.ask{padding:34px 22px}}
+  .cbox{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .cbox small{display:block;font-size:12px;letter-spacing:.2em;color:var(--lime);font-weight:700}
+  .cbox .v{font-size:19px;font-weight:700;font-family:'Inter',sans-serif;letter-spacing:-0.01em}
+  .tpl{margin-top:16px;background:rgba(255,255,255,.07);border:1px dashed rgba(255,255,255,.3);border-radius:18px;padding:20px 22px}
+  .tpl small{display:block;font-size:12px;letter-spacing:.2em;color:var(--lime);font-weight:700;margin-bottom:8px}
+  .tpl pre{font-family:inherit;white-space:pre-wrap;font-size:14.5px;color:rgba(255,255,255,.88);margin-bottom:12px}
+  .ask .btn.ghost{color:#fff;border-color:rgba(255,255,255,.5)}
+  .region{margin-top:16px;font-size:14px;color:rgba(255,255,255,.7)}
 
-  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--sub);font-size:13px}
+  footer{border-top:1px solid var(--line);padding:28px 0 100px;color:var(--sub);font-size:13px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  /* mobile sticky bar */
+  .mbar{display:none}
+  @media(max-width:760px){
+    .mbar{display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+    .mbar a{padding:12px 6px;font-size:14.5px;border-radius:14px}
+    header .btn.sm{display:none}
+    section{padding:68px 0}
+    .hero svg.curve{display:none}
+  }
+  .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:40}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
@@ -129,98 +214,190 @@
   <div class="wrap">
     <a href="#top" class="logo"><span class="num">120</span><span class="dot"></span><small>PROJECT</small></a>
     <nav>
+      <a href="#diagnosis">무료 진단</a>
+      <a href="#cases">성공사례</a>
       <a href="#services">서비스</a>
       <a href="#process">진행 방식</a>
       <a href="#about">대표 소개</a>
-      <a href="#model">협업 모델</a>
     </nav>
-    <a href="#contact" class="btn sm">상담 문의</a>
+    <a href="#contact" class="btn sm">무료 진단 신청</a>
   </div>
 </header>
 
 <section class="hero" id="top">
-  <svg class="curve" viewBox="0 0 600 500" preserveAspectRatio="none" aria-hidden="true">
+  <svg class="curve" viewBox="0 0 600 500" preserveAspectRatio="xMaxYMax slice" aria-hidden="true">
     <path d="M40 500 C 300 400, 430 260, 540 70" fill="none" stroke="#A6D84F" stroke-width="5" stroke-linecap="round"/>
     <circle cx="540" cy="70" r="13" fill="#1F8A4C"/>
   </svg>
   <div class="wrap">
     <div class="eyebrow">120 PROJECT</div>
     <div class="big num">120</div>
-    <h1>현장을 아는 사람이 만드는<br><em>중소 제조 MES·스마트공장</em></h1>
-    <p class="lead">자동차부품 제조 현장 20년, MES 구축 4회. 시스템을 들이는 데서 끝나지 않고, 현장에서 실제로 쓰이도록 함께합니다.</p>
-    <div class="chips">
-      <span class="chip">자동차부품 제조 20년</span>
-      <span class="chip">MES 구축 4회</span>
-      <span class="chip">SAP 10년+</span>
-      <span class="chip">SCM · POP</span>
+    <h1>멈춘 MES는 <em>다시 돌리고</em>,<br>처음이라면 <em>제대로 시작합니다</em></h1>
+    <p class="lead">자동차부품 제조 현장 20년, MES 구축·고도화 4회. 공급사가 아닌 현장 생산관리자의 눈으로 진단하고, 현장이 매일 쓰는 시스템이 될 때까지 함께합니다.</p>
+    <div class="free">
+      <span class="tag">무료</span>
+      <b>MES 현황 진단</b>
+      <p>30분 인터뷰로 7개 영역을 점검하고, <strong>3영업일 안에 현황 진단 1장 + 추천 범위</strong>를 보내 드립니다. 진행 여부는 결과를 보고 결정하셔도 됩니다.</p>
     </div>
     <div class="cta">
-      <a href="#contact" class="btn">무료 상담 문의</a>
-      <a href="#services" class="btn ghost">서비스 보기</a>
+      <a href="#contact" class="btn">무료 진단 신청</a>
+      <a href="#cases" class="btn ghost">성공사례 보기</a>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="sec-label">PROBLEM</div>
-    <h2>이런 고민, 있으신가요?</h2>
-    <p class="sec-lead">중소 제조 현장에서 가장 자주 듣는 이야기입니다.</p>
+    <div class="sec-label">WHY MES STOPS</div>
+    <h2>MES가 멈추는 7가지 이유</h2>
+    <p class="sec-lead">대부분 솔루션의 문제가 아니라 운영의 문제입니다. 하나라도 해당되면 진단부터 받아 보세요.</p>
     <div class="pain">
-      <div>재고 숫자가 전산과 현장이 매번 다릅니다</div>
-      <div>MES를 들였는데 결국 엑셀로 다시 관리합니다</div>
-      <div>생산실적·투입 집계에 매일 몇 시간씩 씁니다</div>
-      <div>스마트공장 지원사업, 어디서부터 준비할지 막막합니다</div>
-      <div>담당자가 바뀌면 업무 방식도 다 바뀝니다</div>
-      <div>ERP와 현장 데이터가 따로 놉니다</div>
+      <div><span class="n">1</span><h4>기준정보 미정비</h4><p>품목코드·BOM·라우팅이 실물과 달라 실적이 안 맞고, 시스템을 믿지 않게 됩니다.</p></div>
+      <div><span class="n">2</span><h4>입력은 많고 돌려받는 건 없음</h4><p>작업자는 입력만 하고 볼 수 있는 정보가 없어 입력이 끊깁니다.</p></div>
+      <div><span class="n">3</span><h4>ERP·MES 이중 입력</h4><p>같은 데이터를 두 번 넣고 숫자가 달라 결국 엑셀로 돌아갑니다.</p></div>
+      <div><span class="n">4</span><h4>공급사 지원 종료</h4><p>사업이 끝나면 유지보수가 끊겨 작은 수정도 못 합니다.</p></div>
+      <div><span class="n">5</span><h4>담당자 퇴사·부재</h4><p>구축 담당자가 떠나면 운영 노하우도 함께 사라집니다.</p></div>
+      <div><span class="n">6</span><h4>너무 넓은 구축 범위</h4><p>실적·품질·설비·재고를 한 번에 시작해 어느 것도 자리 잡지 못합니다.</p></div>
+      <div><span class="n">7</span><h4>경영 지표와 단절</h4><p>경영진이 MES 데이터를 보지 않으니 현장도 입력할 이유를 잃습니다.</p></div>
     </div>
   </div>
 </section>
 
-<section class="alt" id="services">
+<section class="alt" id="diagnosis">
+  <div class="wrap">
+    <div class="sec-label">FREE DIAGNOSIS</div>
+    <h2>무료 MES 현황 진단</h2>
+    <p class="sec-lead">방문 또는 화상으로 30분. 우리 공장이 지금 어디에 있고 무엇부터 해야 하는지, 비용 부담 없이 먼저 확인하세요.</p>
+    <div class="diag">
+      <div class="panel">
+        <h3>점검하는 7개 영역</h3>
+        <div class="areas">
+          <span>기준정보</span><span>LOT 추적</span><span>설비 데이터</span><span>ERP 연동</span><span>지식·규칙</span><span>보안·권한</span><span>품질 절차</span>
+        </div>
+        <h3>3영업일 안에 받는 것</h3>
+        <ul class="get">
+          <li><span class="k">1</span><div><b>현황 진단 1장</b><span>영역별 수준과 가장 큰 문제 3가지</span></div></li>
+          <li><span class="k">2</span><div><b>추천 범위</b><span>공장 상태(A·B·C), 맞는 지원사업, 필요한 서비스·모듈</span></div></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>무료와 유료의 경계</h3>
+        <table class="scope">
+          <tr><th class="f">무료</th><th class="p">유료 (범위 확인 후 견적)</th></tr>
+          <tr><td class="f">30분 인터뷰 · 7개 영역 점검</td><td>상세 실행계획 · 일정</td></tr>
+          <tr><td class="f">현황 진단 1장</td><td>기준정보 정비안 · 데이터 분석</td></tr>
+          <tr><td class="f">추천 범위 (무엇을 먼저 할지)</td><td>사업계획서 작성 · 현장 추가 방문</td></tr>
+        </table>
+        <p class="note">무료 진단은 "무엇을 먼저 할지"까지 알려 드립니다. "어떻게 할지"는 유료 서비스에서 함께 만듭니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">WHERE ARE YOU</div>
+    <h2>우리 공장은 어디에 해당할까요?</h2>
+    <p class="sec-lead">공장 상태에 따라 맞는 지원사업과 순서가 다릅니다. 진단 결과에서 이 중 하나로 추천해 드립니다.</p>
+    <div class="states">
+      <div class="st"><span class="lt">A</span><h3>MES 없음, 엑셀 관리</h3><p class="desc">처음 도입을 준비하는 공장</p>
+        <dl><dt>맞는 지원사업</dt><dd>정부일반형 스마트공장</dd><dt>추천 순서</dt><dd>진단 → 사업계획서 → 구축 PM</dd></dl></div>
+      <div class="st"><span class="lt">B</span><h3>MES는 있는데 안 쓰임</h3><p class="desc">구축 후 멈췄거나 데이터 품질이 낮은 공장</p>
+        <dl><dt>맞는 서비스</dt><dd>MES 재가동 (RE-START)</dd><dt>이후 연계</dt><dd>제조AI특화 · 데이터 수집·검증</dd></dl></div>
+      <div class="st"><span class="lt">C</span><h3>데이터가 쌓이는 공장</h3><p class="desc">AI 과제를 준비하는 공장</p>
+        <dl><dt>맞는 지원사업</dt><dd>제조AI특화 · AI공장 구축</dd><dt>추천 순서</dt><dd>진단 → 과제 정의 → 계획서 → PM</dd></dl></div>
+    </div>
+    <p class="foot">※ 지원사업 유형은 2027 스마트 제조혁신 지원사업 통합공고 사전 안내(중소벤처기업부, 2026.10.30) 기준이며, 개별 공고에서 확정됩니다. 120 PROJECT는 지원사업 선정을 보장하지 않습니다.</p>
+  </div>
+</section>
+
+<section class="alt" id="cases">
+  <div class="wrap">
+    <div class="sec-label">SUCCESS CASES</div>
+    <h2>현장에서 만든 결과</h2>
+    <p class="sec-lead">규모도 시스템도 달랐지만, 매번 같은 순서로 풀었습니다.</p>
+    <div class="method"><span>기준정보</span><i>→</i><span>업무 Rule</span><i>→</i><span>매일 보는 데이터</span></div>
+    <div class="cases">
+      <div class="case">
+        <div class="who">자동차 램프 부품사 · 신공장</div>
+        <h3>구축만 끝난 MES를 현장이 입력하는 MES로</h3>
+        <div class="kpi">1%대 → 90%대<small>증착 공정 실적 등록률 (5주)</small></div>
+        <ul><li>품목 기준정보 160여 건 정비, 신규 50여 건</li><li>공정별 운영 방법서 4종 · 현장 교육</li><li>미진사항 70여 건 리스트화·추적</li></ul>
+      </div>
+      <div class="case">
+        <div class="who">대기업 계열 자동차 소재사</div>
+        <h3>그룹 ERP(SAP) 전환, 현장 조기 안정화</h3>
+        <div class="kpi">5개월<small>오픈 후 안정화 (41개 부서 중 소수)</small></div>
+        <ul><li>현장 실무자 61명 전원 실습교육</li><li>월 수불 마감 D+2 체계</li><li>1物 1코드 품목 체계 · BOM 정확도 관리</li></ul>
+      </div>
+      <div class="case">
+        <div class="who">2차전지 부품사</div>
+        <h3>구축된 MES를 고객이 확인하는 MES로 고도화</h3>
+        <div class="kpi">90여 개<small>MES 메뉴 운영·고도화</small></div>
+        <ul><li>1 SN = 1 트레이 LOT 추적 Rule</li><li>법인 간 출하·검사성적서 MES 연계 설계</li><li>신규 공장 조립·검사 Process Map 정의</li></ul>
+      </div>
+      <div class="case">
+        <div class="who">ERP 도입 초기 제조사</div>
+        <h3>수작업 공장에 생산관리 데이터 체계 수립</h3>
+        <div class="kpi">첫 가시화<small>설비별 계획 달성률 · 비가동 원인</small></div>
+        <ul><li>품목코드·생산 LOT 체계 수립</li><li>CAPA 기반 생산계획 운영</li><li>비가동 계획/비계획 분류 분석</li></ul>
+      </div>
+    </div>
+    <p class="foot">※ 비밀유지를 위해 회사명은 밝히지 않으며, 수치는 실측 기준으로 반올림·근사값으로 표기했습니다.</p>
+  </div>
+</section>
+
+<section id="services">
   <div class="wrap">
     <div class="sec-label">SERVICES</div>
-    <h2>무엇을 도와드리나요</h2>
-    <p class="sec-lead">진단부터 정착까지, 회사 규모와 예산에 맞춰 필요한 만큼만 설계합니다.</p>
+    <h2>서비스</h2>
+    <p class="sec-lead">무료 진단에서 시작해 필요한 서비스만 골라 진행합니다. 유료 서비스는 진단 뒤 범위를 확인하고 견적을 드립니다.</p>
     <div class="svc">
-      <div class="card">
-        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F8A4C" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 12l3-3 2 2 4-4"/></svg></div>
-        <h3>MES 구축·재정비</h3>
-        <p>현장이 실제로 쓰는 MES를 설계하고, 멈춘 시스템은 다시 돌아가게 합니다.</p>
-        <ul><li>요구사항 정의·업체 선정 지원</li><li>바코드·자재흐름 설계</li><li>POP 화면·실적 집계 기준</li></ul>
-      </div>
-      <div class="card">
-        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F8A4C" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2"/></svg></div>
-        <h3>생산정보 표준화</h3>
-        <p>품번·공정·BOM·외주 기준을 하나로 맞춰 데이터가 믿을 만해지게 합니다.</p>
-        <ul><li>기준정보 정비</li><li>수불·재고 정합성 개선</li><li>SAP·ERP 연계 설계</li></ul>
-      </div>
-      <div class="card">
-        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F8A4C" stroke-width="2"><path d="M3 21V9l6 4V9l6 4V5l6 4v12z"/></svg></div>
-        <h3>스마트공장·정부지원사업</h3>
-        <p>지원사업 공고 분석부터 사업계획서, 수행·사후관리까지 함께 준비합니다.</p>
-        <ul><li>사업 적합성 진단</li><li>사업계획서·발표자료 작성 지원</li><li>공급기업 협업·수행관리</li></ul>
-      </div>
-      <div class="card">
-        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F8A4C" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
-        <h3>업무개선·AI 자동화</h3>
-        <p>반복되는 집계·보고 업무를 줄이고, AI로 바로 쓸 수 있는 도구를 만듭니다.</p>
-        <ul><li>업무 흐름·인력 운영 분석</li><li>엑셀·보고서 자동화</li><li>회의·현장 기록 AI 정리</li></ul>
+      <div class="card hl"><span class="pr">무료</span><h3>MES 현황 진단</h3><p>30분 인터뷰, 7개 영역 점검.</p><ul><li>현황 진단 1장</li><li>추천 범위 회신 (3영업일)</li></ul></div>
+      <div class="card"><span class="pr">견적</span><h3>MES 재가동 (RE-START)</h3><p>새로 사지 않고, 있는 MES를 12~16주 안에 되살립니다.</p><ul><li>진단 → 정비 → 재가동 → 정착</li><li>기준정보 정비 · 이중 입력 제거</li><li>내부 담당자 육성 · 인수인계</li></ul></div>
+      <div class="card"><span class="pr">견적</span><h3>사업계획서 작성 지원</h3><p>공장에 맞는 지원사업을 고르고 신청서 형식으로 정리합니다.</p><ul><li>현황 진단 · 구축 범위 정의</li><li>사업계획서 초안</li></ul></div>
+      <div class="card"><span class="pr">견적</span><h3>MES 구축 PM</h3><p>공장 편에서 프로젝트를 끌고 갑니다.</p><ul><li>요구사항 정의 · 공급기업 선정 지원</li><li>일정 관리 · 검수</li></ul></div>
+      <div class="card"><span class="pr">견적</span><h3>AI 데이터 수집 설계</h3><p>AI 과제에 쓸 데이터를 무엇을, 어디서, 어떤 코드로 모을지 설계합니다.</p><ul><li>설비 데이터 수집 설계서</li><li>용어·코드 표준화</li></ul></div>
+    </div>
+    <div class="mods">
+      <h4>필요한 것만 붙이는 진단 모듈</h4>
+      <div>
+        <span><b>M1</b>현장 규칙 10개 테스트</span>
+        <span><b>M2</b>데이터 준비도 진단</span>
+        <span><b>M3</b>용어·코드 표준화</span>
+        <span><b>M4</b>OT 접속 점검</span>
+        <span><b>M5</b>설비 데이터 수집 설계</span>
+        <span><b>M6</b>품질 프로세스 연계 진단</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="process">
+<section class="alt" id="process">
   <div class="wrap">
     <div class="sec-label">PROCESS</div>
-    <h2>이렇게 진행합니다</h2>
-    <p class="sec-lead">처음부터 큰 시스템을 들이지 않습니다. 작게 확인하고, 효과가 보이면 넓힙니다.</p>
+    <h2>진행 순서</h2>
+    <p class="sec-lead">첫 연락부터 결과를 받아 보실 때까지 비용이 들지 않습니다.</p>
     <div class="steps">
-      <div class="step"><div class="n">01</div><h4>현장 진단</h4><p>공정·자재흐름·데이터를 직접 보고 문제를 정의합니다.</p></div>
-      <div class="step"><div class="n">02</div><h4>개선 설계</h4><p>우선순위와 예산에 맞춘 로드맵과 기준을 세웁니다.</p></div>
-      <div class="step"><div class="n">03</div><h4>구축·적용</h4><p>시스템·업체와 함께 구축하고 현장 테스트를 거칩니다.</p></div>
-      <div class="step"><div class="n">04</div><h4>정착·내재화</h4><p>현장 담당자가 스스로 운영할 때까지 함께합니다.</p></div>
+      <div class="step on"><div class="n">01</div><h4>문의<span class="fr">무료</span></h4><p>전화·문자로 연락. 규모, 업종, 쓰는 시스템을 간단히 확인합니다.</p></div>
+      <div class="step on"><div class="n">02</div><h4>30분 진단<span class="fr">무료</span></h4><p>방문 또는 화상으로 7개 영역을 점검합니다.</p></div>
+      <div class="step on"><div class="n">03</div><h4>결과 회신<span class="fr">무료</span></h4><p>3영업일 안에 현황 진단 1장과 추천 범위를 보내 드립니다.</p></div>
+      <div class="step"><div class="n">04</div><h4>범위·견적 합의</h4><p>필요한 서비스를 고르고 일정·산출물·비용을 문서로 합의합니다.</p></div>
+      <div class="step"><div class="n">05</div><h4>수행·인계</h4><p>산출물을 전달하고, 현장이 스스로 운영할 수 있게 인계합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">PRINCIPLES</div>
+    <h2>일하는 원칙</h2>
+    <p class="sec-lead">컨설팅이 끝난 뒤에도 공장에 남는 것을 기준으로 일합니다.</p>
+    <div class="prin">
+      <div><b>진단 내용은 비밀로 합니다</b><span>사례로 쓸 때는 동의를 받고 익명으로 처리합니다.</span></div>
+      <div><b>기대 효과는 귀사 데이터로</b><span>외부 수치는 출처와 조사 대상을 함께 밝힙니다.</span></div>
+      <div><b>작게 시작해 확실히 쓰게</b><span>핵심 1~2개 공정부터 정착시킨 뒤 넓힙니다.</span></div>
+      <div><b>구축은 전문 공급기업과</b><span>진단·설계·PM을 맡고, 솔루션 구축은 공급기업과 연결합니다.</span></div>
     </div>
   </div>
 </section>
@@ -229,7 +406,7 @@
   <div class="wrap">
     <div class="sec-label">DIRECTOR</div>
     <h2>대표 소개</h2>
-    <p class="sec-lead">컨설팅 이론보다 현장에서 직접 돌려본 경험으로 이야기합니다.</p>
+    <p class="sec-lead">MES 준비 → 구축 → 시행 → 고도화, 전 과정을 현업 쪽에서 직접 겪었습니다.</p>
     <div class="about">
       <div class="profile">
         <div class="top"></div>
@@ -237,20 +414,20 @@
           <div class="name">김기웅<span class="en">Kim Ki-woong</span></div>
           <div class="role">PROJECT DIRECTOR · 프로젝트 디렉터</div>
           <div class="stats">
-            <div><b>20</b><span>제조 현장 경력(년)</span></div>
-            <div><b>4</b><span>MES 구축(회)</span></div>
+            <div><b>20</b><span>제조 현장(년)</span></div>
+            <div><b>4</b><span>MES 구축·고도화(회)</span></div>
             <div><b>10+</b><span>SAP 사용(년)</span></div>
           </div>
-          <div class="certs">
-            <span>ADsP</span><span>정보처리산업기사</span><span>유통관리사</span><span>PCT</span>
-          </div>
+          <div class="certs"><span>ADsP</span><span>정보처리산업기사</span><span>유통관리사</span><span>PCT</span></div>
         </div>
       </div>
       <ul class="timeline">
-        <li><div class="yr num">2026</div><h4>120 PROJECT 설립</h4><p>중소 제조 MES·스마트공장·업무개선 컨설팅</p></li>
-        <li><div class="yr num">2026</div><h4>엔브이에이치플로어시스템 · 생산팀 책임매니저</h4><p>자동차 카매트 생산 운영</p></li>
-        <li><div class="yr num">2024 – 2026</div><h4>성우 · 생산관리팀 과장(생산총괄)</h4><p>생산관리 총괄, 생산정보 표준화</p></li>
-        <li><div class="yr num">2006 – 2021</div><h4>코오롱글로텍 · AF생산팀</h4><p>생산 수불·재고 관리, 신규 POP 개발, SAP PI 프로젝트 참여</p></li>
+        <li><div class="yr num">2026 –</div><h4>120 PROJECT</h4><p>중소 제조 MES·스마트공장 컨설팅</p></li>
+        <li><div class="yr num">2026</div><h4>자동차 바닥재 제조사 · 생산팀 책임매니저</h4><p>그룹 MES·SC 포털 도입 준비, 현업 요구사항 정리</p></li>
+        <li><div class="yr num">2024 – 2026</div><h4>2차전지 부품사 · 생산관리 총괄</h4><p>MES 고도화, 법인 간 MES 연계</p></li>
+        <li><div class="yr num">2023 – 2024</div><h4>자동차 램프 부품사 · 생산관리</h4><p>신공장 MES 시행·안정화</p></li>
+        <li><div class="yr num">2021 – 2022</div><h4>ERP 도입 초기 제조사 · 생산관리</h4><p>품목코드·LOT·생산계획 체계 수립</p></li>
+        <li><div class="yr num">2006 – 2021</div><h4>대기업 계열 자동차 소재사 · 생산팀</h4><p>그룹 ERP(SAP) 전환 PI 생산팀 대표, POP 개발</p></li>
       </ul>
     </div>
   </div>
@@ -262,50 +439,67 @@
       <div class="sec-label">COLLABORATION</div>
       <h2>120세 시대,<br>건강하게 오래 일하는 전문가 협업</h2>
       <p>120 PROJECT는 분야별 전문가가 프로젝트 단위로 모이는 협업 조직입니다. 과제에 꼭 맞는 사람만 모아 군더더기 없는 비용으로 일합니다.</p>
-      <div class="pills">
-        <span>생산·물류</span><span>MES·SCM</span><span>SAP·ERP</span><span>데이터·AI</span><span>정부지원사업</span>
-      </div>
+      <div class="pills"><span>생산·물류</span><span>MES·SCM</span><span>SAP·ERP</span><span>데이터·AI</span><span>정부지원사업</span></div>
     </div>
   </div>
 </section>
 
-<section id="contact" style="padding-top:24px">
+<section id="contact" style="padding-top:12px">
   <div class="wrap">
-    <div class="sec-label">CONTACT</div>
-    <h2>상담 문의</h2>
-    <p class="sec-lead">첫 상담은 무료입니다. 현재 상황을 편하게 말씀해 주세요.</p>
-    <div class="contact">
-      <div class="cbox">
-        <div><small>MOBILE</small><a class="v" href="tel:01026471630">010-2647-1630</a></div>
-        <button class="btn sm ghost" data-copy="010-2647-1630">번호 복사</button>
+    <div class="ask">
+      <div class="sec-label">FREE DIAGNOSIS</div>
+      <h2>무료 진단 신청</h2>
+      <p class="sec-lead">전화나 문자 한 통이면 됩니다. 3영업일 안에 현황 진단 1장과 추천 범위를 보내 드립니다.</p>
+      <div class="ask-grid">
+        <div class="cbox">
+          <div><small>MOBILE</small><a class="v" href="tel:01026471630">010-2647-1630</a></div>
+          <button class="btn sm white" data-copy="010-2647-1630">번호 복사</button>
+        </div>
+        <div class="cbox">
+          <div><small>EMAIL</small><a class="v" href="mailto:kkwhero@gmail.com">kkwhero@gmail.com</a></div>
+          <button class="btn sm white" data-copy="kkwhero@gmail.com">메일 복사</button>
+        </div>
       </div>
-      <div class="cbox">
-        <div><small>EMAIL</small><a class="v" href="mailto:kkwhero@gmail.com">kkwhero@gmail.com</a></div>
-        <button class="btn sm ghost" data-copy="kkwhero@gmail.com">메일 복사</button>
+      <div class="tpl">
+        <small>문자로 보내실 때 (복사해서 쓰세요)</small>
+<pre id="tpl">[무료 MES 진단 신청]
+회사명:
+업종 / 주요 제품:
+인원:
+현재 시스템 (MES·ERP·엑셀 등):
+가장 큰 고민:</pre>
+        <button class="btn sm ghost" data-copy-el="tpl">양식 복사</button>
       </div>
+      <p class="region">활동 지역: 구미 · 대구 · 경북 (그 외 지역은 화상 진단 가능)</p>
     </div>
-    <p class="note">활동 지역: 구미 · 대구 · 경북 (그 외 지역은 협의)</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span><b class="num" style="color:var(--green)">120</b> PROJECT · 중소 제조 MES·스마트공장 컨설팅</span>
+    <span><b class="num" style="color:var(--green)">120</b> PROJECT · 중소 제조 MES·스마트공장 컨설팅 · 120project.kr</span>
     <span>© 2026 120 PROJECT</span>
   </div>
 </footer>
 
+<div class="mbar">
+  <a class="btn ghost" href="tel:01026471630">전화</a>
+  <a class="btn ghost" href="sms:01026471630">문자</a>
+  <a class="btn" href="#contact">무료 진단 신청</a>
+</div>
+
 <div class="toast" id="toast">복사했습니다</div>
 <script>
-  document.querySelectorAll('[data-copy]').forEach(function(b){
-    b.addEventListener('click',function(){
-      var t=document.getElementById('toast');
-      function show(msg){t.textContent=msg;t.classList.add('on');setTimeout(function(){t.classList.remove('on')},1600)}
-      try{
-        navigator.clipboard.writeText(b.dataset.copy).then(function(){show('복사했습니다')},function(){show(b.dataset.copy)});
-      }catch(e){show(b.dataset.copy)}
-    });
-  });
+  (function(){
+    var t=document.getElementById('toast');
+    function show(msg){t.textContent=msg;t.classList.add('on');setTimeout(function(){t.classList.remove('on')},1600)}
+    function copy(text){
+      try{navigator.clipboard.writeText(text).then(function(){show('복사했습니다')},function(){show('길게 눌러 복사해 주세요')});}
+      catch(e){show('길게 눌러 복사해 주세요')}
+    }
+    document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){copy(b.dataset.copy)})});
+    document.querySelectorAll('[data-copy-el]').forEach(function(b){b.addEventListener('click',function(){copy(document.getElementById(b.dataset.copyEl).textContent)})});
+  })();
 </script>
 </body>
 </html>
