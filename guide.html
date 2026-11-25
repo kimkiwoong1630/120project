@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>120 PROJECT · 한눈에 보기</title>
+<meta name="description" content="120 PROJECT 서비스와 진행 방식을 그림으로 정리했습니다. 무료 진단부터 수행·인계까지, 공장 상태별 추천 경로, 진단 결과 예시, MES 재가동 로드맵.">
+<meta property="og:title" content="120 PROJECT · 서비스·진행 방식 한눈에 보기">
+<meta property="og:url" content="https://120project.kr/guide.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 현장 생산관리자가 화이트보드에 그려 주는 설명 — 친절하고 명확하게
+   IDEA: 공장 게시판에 붙는 공정 흐름도·현황판 카드
+   PICTURE: 6장의 인포그래픽 이미지(흐름도, 경로도, 진단서 예시, 간트, 역할도, 전후 비교)
+   COLOUR and TYPE: 홈페이지와 동일 — 그린 #1F8A4C, 라임 #A6D84F, 민트; Noto Sans KR + Inter 숫자
+   LAYOUT: 상단 바로가기 칩 → 이미지 카드 세로 나열(이미지 + 짧은 설명) → 무료 진단 CTA */
+  :root{--green:#1F8A4C;--green-dk:#166B3A;--lime:#A6D84F;--mint:#DCEFD9;--bg:#F5F8F2;--ink:#1B2420;--sub:#56635C;--line:#E2E9E0}
+  *{box-sizing:border-box;margin:0;padding:0;min-width:0}
+  html{scroll-behavior:smooth;scroll-padding-top:120px}
+  body{font-family:'Noto Sans KR',sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:clip}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .num{font-family:'Inter',sans-serif;letter-spacing:-0.04em}
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:900}
+  .logo .num{color:var(--green);font-size:25px}
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--lime)}
+  .logo small{font-size:12px;letter-spacing:.25em;color:var(--sub);font-weight:700}
+  .btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;padding:13px 22px;border-radius:999px;font-size:15px;border:0;cursor:pointer;font-family:inherit;text-align:center;min-height:44px}
+  .btn:hover{background:var(--green-dk)}
+  .btn.ghost{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+  .btn.sm{padding:10px 16px;font-size:14px}
+  .btn:focus-visible,.chips a:focus-visible,figure:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+
+  .intro{background:var(--bg);padding:56px 0 30px}
+  .intro .lab{font-size:14px;font-weight:700;color:var(--green);margin-bottom:8px}
+  .intro h1{font-size:clamp(28px,4.4vw,44px);font-weight:900;line-height:1.2;margin-bottom:12px;text-wrap:balance}
+  .intro p{color:var(--sub);font-size:17px;max-width:640px}
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:22px 0 4px;scrollbar-width:none}
+  .chips a{flex:none;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:14px;font-weight:700;min-height:44px;display:flex;align-items:center;gap:6px}
+  .chips a b{color:var(--green);font-family:'Inter'}
+  .chips a:hover{border-color:var(--green);color:var(--green)}
+
+  section.fig{padding:56px 0;border-bottom:1px solid var(--line)}
+  section.fig:nth-of-type(even){background:var(--bg)}
+  .head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .head .k{font-family:'Inter';font-weight:900;color:var(--green);font-size:15px}
+  h2{font-size:clamp(23px,3.2vw,32px);font-weight:900;line-height:1.3}
+  .lead{color:var(--sub);font-size:16px;max-width:700px;margin-bottom:22px}
+  figure{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;cursor:zoom-in;position:relative;box-shadow:0 10px 30px rgba(31,138,76,.06)}
+  figure .sc{overflow-x:auto}
+  figure svg{display:block;width:100%;height:auto;min-width:640px}
+  figcaption{font-size:13.5px;color:var(--sub);margin-top:10px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  figcaption .zoom{color:var(--green);font-weight:700}
+  .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+  .notes div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+  section.fig:nth-of-type(odd) .notes div{background:var(--bg);border-color:transparent}
+  .notes b{display:block;font-size:15.5px;margin-bottom:2px}
+  .notes span{font-size:14px;color:var(--sub)}
+  .swipe{display:none;font-size:13px;color:var(--sub);margin-bottom:8px}
+  @media(max-width:700px){.swipe{display:block}figure{padding:12px}}
+
+  /* svg text styles */
+  .t-title{font:900 22px 'Noto Sans KR',sans-serif;fill:var(--ink)}
+  .t-b{font:700 17px 'Noto Sans KR',sans-serif;fill:var(--ink)}
+  .t-s{font:500 14px 'Noto Sans KR',sans-serif;fill:var(--sub)}
+  .t-w{font:700 15px 'Noto Sans KR',sans-serif;fill:#fff}
+  .t-n{font:900 26px 'Inter',sans-serif;fill:#fff}
+  .t-g{font:700 15px 'Noto Sans KR',sans-serif;fill:var(--green)}
+  .t-big{font:900 54px 'Inter',sans-serif;fill:var(--green)}
+
+  .cta{padding:64px 0}
+  .ask{background:var(--ink);color:#fff;border-radius:28px;padding:40px 34px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .ask h2{color:#fff}
+  .ask p{color:rgba(255,255,255,.75);margin-top:6px}
+  .ask .v{font-family:'Inter';font-weight:800;font-size:20px;color:var(--lime);display:block;margin-top:8px}
+  footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--sub);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .lb{position:fixed;inset:0;background:rgba(15,22,18,.88);z-index:50;display:none;flex-direction:column;padding:16px}
+  .lb.on{display:flex}
+  .lb .bar{display:flex;justify-content:space-between;align-items:center;color:#fff;margin-bottom:10px;gap:10px}
+  .lb .bar b{font-size:15px}
+  .lb button{background:#fff;color:var(--ink);border:0;border-radius:999px;padding:10px 18px;font:700 14px 'Noto Sans KR';min-height:44px;cursor:pointer}
+  .lb .body{flex:1;overflow:auto;background:#fff;border-radius:16px;padding:14px;display:flex;align-items:center}
+  .lb .body svg{width:100%;min-width:960px;height:auto;margin:auto}
+  @media(prefers-reduced-motion:no-preference){figure{transition:transform .2s}figure:hover{transform:translateY(-2px)}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="120 PROJECT 홈"><span class="num">120</span><span class="dot"></span><small>PROJECT</small></a>
+    <div style="display:flex;gap:8px">
+      <a href="index.html" class="btn sm ghost">홈으로</a>
+      <a href="index.html#contact" class="btn sm">무료 진단 신청</a>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="lab">서비스 · 진행 방식</div>
+    <h1>그림으로 보는 120 PROJECT</h1>
+    <p>무엇을 해 드리는지, 어떤 순서로 진행되는지, 무엇을 받아 보시는지 6장의 그림으로 정리했습니다. 그림을 누르면 크게 볼 수 있습니다.</p>
+    <nav class="chips" aria-label="그림 바로가기">
+      <a href="#flow"><b>1</b>전체 진행 순서</a>
+      <a href="#path"><b>2</b>공장 상태별 경로</a>
+      <a href="#report"><b>3</b>무료 진단 결과 예시</a>
+      <a href="#restart"><b>4</b>MES 재가동 로드맵</a>
+      <a href="#roles"><b>5</b>역할 분담</a>
+      <a href="#method"><b>6</b>성과를 내는 순서</a>
+    </nav>
+  </div>
+</section>
+
+<!-- 1. 전체 흐름 -->
+<section class="fig" id="flow">
+  <div class="wrap">
+    <div class="head"><span class="k">1</span><h2>첫 연락부터 인계까지 5단계</h2></div>
+    <p class="lead">앞의 3단계는 비용이 들지 않습니다. 결과를 보고 진행 여부를 정하시면 됩니다.</p>
+    <p class="swipe">← 그림을 옆으로 밀거나 눌러서 크게 보세요</p>
+    <figure tabindex="0" data-title="전체 진행 순서">
+      <div class="sc">
+      <svg viewBox="0 0 960 360" role="img" aria-label="문의, 30분 진단, 결과 회신은 무료이고 범위·견적 합의, 수행·인계는 유료인 5단계 흐름도">
+        <rect x="30" y="20" width="540" height="44" rx="22" fill="#DCEFD9"/>
+        <text x="300" y="49" text-anchor="middle" class="t-g">무료 · 비용 부담 없음</text>
+        <rect x="600" y="20" width="330" height="44" rx="22" fill="#1B2420"/>
+        <text x="765" y="49" text-anchor="middle" class="t-w">유료 · 범위 합의 후 진행</text>
+        <line x1="120" y1="160" x2="840" y2="160" stroke="#DCEFD9" stroke-width="10" stroke-linecap="round"/>
+        <line x1="120" y1="160" x2="480" y2="160" stroke="#1F8A4C" stroke-width="10" stroke-linecap="round"/>
+        <g id="flowNodes"></g>
+      </svg>
+      </div>
+      <figcaption><span>기간은 일반적인 경우 기준이며 공장 규모에 따라 달라질 수 있습니다.</span><span class="zoom">눌러서 크게 보기</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2. 공장 상태별 경로 -->
+<section class="fig" id="path">
+  <div class="wrap">
+    <div class="head"><span class="k">2</span><h2>공장 상태에 따라 길이 다릅니다</h2></div>
+    <p class="lead">무료 진단 결과에서 A·B·C 중 하나로 안내해 드리고, 맞는 서비스와 지원사업을 함께 추천합니다.</p>
+    <p class="swipe">← 그림을 옆으로 밀거나 눌러서 크게 보세요</p>
+    <figure tabindex="0" data-title="공장 상태별 경로">
+      <div class="sc">
+      <svg viewBox="0 0 960 440" role="img" aria-label="공장 상태 A, B, C별 추천 서비스와 지원사업 경로도">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1F8A4C"/></marker></defs>
+        <text x="30" y="34" class="t-s">지금 우리 공장은</text>
+        <text x="370" y="34" class="t-s">120 PROJECT가 하는 일</text>
+        <text x="730" y="34" class="t-s">연계 지원사업</text>
+        <g id="pathRows"></g>
+      </svg>
+      </div>
+      <figcaption><span>※ 2027 스마트 제조혁신 지원사업 통합공고 사전 안내(중기부, 2026.10.30) 기준. 개별 공고에서 확정되며 선정을 보장하지 않습니다.</span><span class="zoom">눌러서 크게 보기</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 3. 진단 결과 예시 -->
+<section class="fig" id="report">
+  <div class="wrap">
+    <div class="head"><span class="k">3</span><h2>무료 진단 후 받는 '현황 진단 1장' 예시</h2></div>
+    <p class="lead">30분 인터뷰 뒤 3영업일 안에 이런 한 장을 보내 드립니다. 7개 영역 점수, 가장 큰 문제 3가지, 추천 범위가 담깁니다.</p>
+    <p class="swipe">← 그림을 옆으로 밀거나 눌러서 크게 보세요</p>
+    <figure tabindex="0" data-title="현황 진단 1장 예시">
+      <div class="sc">
+      <svg viewBox="0 0 960 560" role="img" aria-label="가상 회사의 MES 현황 진단 결과 예시. 7개 영역 레이더 차트와 문제 3가지, 추천 범위">
+        <rect x="10" y="10" width="940" height="540" rx="18" fill="#fff" stroke="#E2E9E0" stroke-width="2"/>
+        <rect x="10" y="10" width="940" height="70" rx="18" fill="#1F8A4C"/>
+        <rect x="10" y="60" width="940" height="20" fill="#1F8A4C"/>
+        <text x="40" y="54" class="t-w" style="font-size:22px;font-weight:900">MES 현황 진단 결과</text>
+        <text x="920" y="54" text-anchor="end" class="t-w" style="font-weight:500">○○정밀 (가상) · 2026.12</text>
+        <text x="40" y="118" class="t-b">7개 영역 수준 (5점 만점)</text>
+        <g id="radar"></g>
+        <line x1="500" y1="100" x2="500" y2="530" stroke="#E2E9E0" stroke-width="2"/>
+        <text x="530" y="118" class="t-b">공장 상태</text>
+        <rect x="530" y="132" width="390" height="54" rx="14" fill="#DCEFD9"/>
+        <text x="552" y="168" style="font:900 26px Inter;fill:#1F8A4C">B</text>
+        <text x="584" y="166" class="t-b">MES는 있는데 안 쓰임</text>
+        <text x="530" y="226" class="t-b">가장 큰 문제 3가지</text>
+        <g id="issues"></g>
+        <text x="530" y="438" class="t-b">추천 범위</text>
+        <rect x="530" y="450" width="390" height="80" rx="14" fill="#1B2420"/>
+        <text x="552" y="482" class="t-w">MES 재가동(RE-START) 12주</text>
+        <text x="552" y="510" style="font:500 14px 'Noto Sans KR';fill:rgba(255,255,255,.75)">+ M2 데이터 준비도 진단 → 이후 제조AI특화 검토</text>
+      </svg>
+      </div>
+      <figcaption><span>예시 · 가상의 회사와 점수로 만든 샘플입니다.</span><span class="zoom">눌러서 크게 보기</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 4. 재가동 로드맵 -->
+<section class="fig" id="restart">
+  <div class="wrap">
+    <div class="head"><span class="k">4</span><h2>MES 재가동(RE-START) 12~16주 로드맵</h2></div>
+    <p class="lead">새로 사지 않고 있는 MES를 되살립니다. 단계가 겹치도록 짜서 현장이 멈추지 않게 진행합니다.</p>
+    <p class="swipe">← 그림을 옆으로 밀거나 눌러서 크게 보세요</p>
+    <figure tabindex="0" data-title="MES 재가동 로드맵">
+      <div class="sc">
+      <svg viewBox="0 0 960 400" role="img" aria-label="진단 1~2주, 정비 3~8주, 재가동 7~12주, 정착 11~16주의 간트 차트">
+        <g id="gantt"></g>
+      </svg>
+      </div>
+      <figcaption><span>16주는 공정 수가 많은 경우 기준입니다. 핵심 1~2개 공정부터 시작하면 12주 안팎입니다.</span><span class="zoom">눌러서 크게 보기</span></figcaption>
+    </figure>
+    <div class="notes">
+      <div><b>진단</b><span>현장 인터뷰, 데이터 추출, 멈춘 원인 정리</span></div>
+      <div><b>정비</b><span>품목·BOM·라우팅 기준정보 정비, 이중 입력 제거</span></div>
+      <div><b>재가동</b><span>핵심 공정부터 실적 입력 재개, 공정별 운영 방법서</span></div>
+      <div><b>정착</b><span>매일 보는 현황판, 내부 담당자 육성, 인수인계</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 역할 분담 -->
+<section class="fig" id="roles">
+  <div class="wrap">
+    <div class="head"><span class="k">5</span><h2>누가 무엇을 하나요</h2></div>
+    <p class="lead">120 PROJECT는 공장 편에서 진단·설계·PM을 맡고, 솔루션 구축은 전문 공급기업과 연결합니다.</p>
+    <p class="swipe">← 그림을 옆으로 밀거나 눌러서 크게 보세요</p>
+    <figure tabindex="0" data-title="역할 분담">
+      <div class="sc">
+      <svg viewBox="0 0 960 400" role="img" aria-label="공장, 120 PROJECT, 공급기업의 역할 분담도">
+        <defs><marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#56635C"/></marker></defs>
+        <g id="roleBoxes"></g>
+      </svg>
+      </div>
+      <figcaption><span>진단 내용은 비밀로 하며, 사례로 쓸 때는 동의를 받고 익명으로 처리합니다.</span><span class="zoom">눌러서 크게 보기</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 6. 방법 + 성과 -->
+<section class="fig" id="method">
+  <div class="wrap">
+    <div class="head"><span class="k">6</span><h2>성과를 내는 순서는 늘 같습니다</h2></div>
+    <p class="lead">기준정보를 바로잡고, 업무 Rule을 정하고, 현장이 매일 보는 데이터로 돌려줍니다. 실제 현장에서 이 순서로 만든 결과입니다.</p>
+    <p class="swipe">← 그림을 옆으로 밀거나 눌러서 크게 보세요</p>
+    <figure tabindex="0" data-title="성과를 내는 순서">
+      <div class="sc">
+      <svg viewBox="0 0 960 340" role="img" aria-label="기준정보, 업무 Rule, 매일 보는 데이터 3단계와 실적 등록률 1%대에서 90%대 비교">
+        <g id="method3"></g>
+        <text x="40" y="200" class="t-b">자동차 램프 부품사 · 증착 공정 실적 등록률</text>
+        <text x="40" y="250" class="t-s">시작</text>
+        <rect x="110" y="232" width="780" height="26" rx="13" fill="#F5F8F2"/>
+        <rect x="110" y="232" width="14" height="26" rx="7" fill="#A6D84F"/>
+        <text x="900" y="252" text-anchor="end" class="t-b">1%대</text>
+        <text x="40" y="302" class="t-s">5주 후</text>
+        <rect x="110" y="284" width="780" height="26" rx="13" fill="#F5F8F2"/>
+        <rect x="110" y="284" width="702" height="26" rx="13" fill="#1F8A4C"/>
+        <text x="800" y="303" text-anchor="end" class="t-w">90%대</text>
+      </svg>
+      </div>
+      <figcaption><span>※ 비밀유지를 위해 회사명은 밝히지 않으며, 수치는 실측 기준 근사값입니다.</span><span class="zoom">눌러서 크게 보기</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="ask">
+      <div>
+        <h2>우리 공장은 어디서부터?</h2>
+        <p>30분 무료 진단으로 3영업일 안에 위 3번 같은 한 장을 받아 보세요.</p>
+        <span class="v">010-2647-1630 · kkwhero@gmail.com</span>
+      </div>
+      <a href="index.html#contact" class="btn">무료 진단 신청</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><b class="num" style="color:var(--green)">120</b> PROJECT · 중소 제조 MES·스마트공장 컨설팅 · 120project.kr</span>
+    <span>© 2026 120 PROJECT</span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="그림 크게 보기">
+  <div class="bar"><b id="lbTitle"></b><button id="lbClose">닫기</button></div>
+  <div class="body" id="lbBody"></div>
+</div>
+
+<script>
+{
+  const G='#1F8A4C',M='#DCEFD9',L='#A6D84F',INK='#1B2420',SUB='#56635C',LN='#E2E9E0';
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const $=id=>document.getElementById(id);
+
+  // 1. flow
+  const steps=[['문의','전화·문자 한 통','규모·업종 확인',1],['30분 진단','방문 또는 화상','7개 영역 점검',1],['결과 회신','3영업일 이내','진단 1장 + 추천 범위',1],['범위·견적 합의','문서로 합의','일정·산출물·비용',0],['수행·인계','서비스별 기간','현장 자립 운영',0]];
+  $('flowNodes').innerHTML=steps.map((s,i)=>{const x=120+i*180,f=s[3];return `
+    <circle cx="${x}" cy="160" r="48" fill="${f?G:'#fff'}" stroke="${f?G:INK}" stroke-width="4"/>
+    <text x="${x}" y="170" text-anchor="middle" style="font:900 28px Inter;fill:${f?'#fff':INK}">0${i+1}</text>
+    <text x="${x}" y="240" text-anchor="middle" class="t-b">${esc(s[0])}</text>
+    <text x="${x}" y="266" text-anchor="middle" class="t-s">${esc(s[1])}</text>
+    <rect x="${x-80}" y="286" width="160" height="38" rx="19" fill="${f?M:'#F5F8F2'}"/>
+    <text x="${x}" y="310" text-anchor="middle" style="font:700 13.5px 'Noto Sans KR';fill:${f?'#166B3A':INK}">${esc(s[2])}</text>`}).join('');
+
+  // 2. path
+  const rows=[['A','MES 없음, 엑셀 관리','처음 도입 준비',['진단','사업계획서','구축 PM'],'정부일반형 스마트공장'],
+              ['B','MES는 있는데 안 쓰임','구축 후 멈춘 공장',['진단','MES 재가동 12~16주'],'이후 제조AI특화 · 데이터 수집'],
+              ['C','데이터가 쌓이는 공장','AI 과제 준비',['진단','과제 정의','계획서·PM'],'제조AI특화 · AI공장 구축']];
+  $('pathRows').innerHTML=rows.map((r,i)=>{const y=56+i*126;let cx=370;const chips=r[3].map((c,j)=>{const w=c.length*14+30;const out=`${j?`<line x1="${cx-14}" y1="${y+52}" x2="${cx-4}" y2="${y+52}" stroke="${G}" stroke-width="3" marker-end="url(#ar)"/>`:''}<rect x="${cx}" y="${y+32}" width="${w}" height="40" rx="20" fill="${j?G:M}"/><text x="${cx+w/2}" y="${y+58}" text-anchor="middle" style="font:700 14.5px 'Noto Sans KR';fill:${j?'#fff':'#166B3A'}">${esc(c)}</text>`;cx+=w+22;return out}).join('');
+    return `<rect x="30" y="${y+12}" width="290" height="80" rx="16" fill="#fff" stroke="${LN}" stroke-width="2"/>
+      <text x="58" y="${y+68}" style="font:900 40px Inter;fill:${M}">${r[0]}</text>
+      <text x="98" y="${y+46}" class="t-b">${esc(r[1])}</text><text x="98" y="${y+72}" class="t-s">${esc(r[2])}</text>
+      <line x1="326" y1="${y+52}" x2="356" y2="${y+52}" stroke="${G}" stroke-width="3" marker-end="url(#ar)"/>
+      ${chips}
+      <line x1="${Math.min(cx-8,700)}" y1="${y+52}" x2="${722}" y2="${y+52}" stroke="${G}" stroke-width="3" stroke-dasharray="4 5" marker-end="url(#ar)"/>
+      <rect x="730" y="${y+12}" width="200" height="80" rx="16" fill="${INK}"/>
+      ${wrapText(r[4],830,y+48,'t-w',11)}`}).join('');
+  function wrapText(t,x,y,cls,max){const parts=t.split(' · ');const lines=parts.length>1?[parts[0]+' ·',parts.slice(1).join(' · ')]:(t.length>max?[t.slice(0,max),t.slice(max)]:[t]);const dy=lines.length>1?-11:0;return lines.map((l,i)=>`<text x="${x}" y="${y+dy+i*24+6}" text-anchor="middle" class="${cls}">${esc(l)}</text>`).join('')}
+
+  // 3. radar
+  const axes=[['기준정보',2],['LOT 추적',3],['설비 데이터',1],['ERP 연동',2],['지식·규칙',2],['보안·권한',3],['품질 절차',4]];
+  const cx=250,cy=330,R=150,n=axes.length;
+  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/n;return[cx+r*Math.cos(a),cy+r*Math.sin(a)]};
+  let rs='';
+  for(let k=1;k<=5;k++){rs+=`<polygon points="${axes.map((_,i)=>pt(i,R*k/5).join(',')).join(' ')}" fill="none" stroke="${LN}" stroke-width="${k==5?2:1}"/>`}
+  axes.forEach((a,i)=>{const[x,y]=pt(i,R);const[lx,ly]=pt(i,R+34);rs+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="${LN}"/><text x="${lx}" y="${ly+5}" text-anchor="middle" class="t-s" style="fill:${INK};font-weight:700">${esc(a[0])}</text>`});
+  rs+=`<polygon points="${axes.map((a,i)=>pt(i,R*a[1]/5).join(',')).join(' ')}" fill="rgba(31,138,76,.22)" stroke="${G}" stroke-width="3"/>`;
+  axes.forEach((a,i)=>{const[x,y]=pt(i,R*a[1]/5);rs+=`<circle cx="${x}" cy="${y}" r="6" fill="${a[1]<=1?'#D9534F':G}" stroke="#fff" stroke-width="2"/>`});
+  $('radar').innerHTML=rs;
+  const iss=[['품목·BOM 기준정보가 실물과 다름','실적 불일치 → 시스템 불신'],['ERP·MES 이중 입력','같은 데이터를 두 번, 숫자도 다름'],['설비 비가동을 수기로 기록','원인 분석 불가']];
+  $('issues').innerHTML=iss.map((s,i)=>{const y=244+i*56;return `<circle cx="548" cy="${y+18}" r="15" fill="${G}"/><text x="548" y="${y+24}" text-anchor="middle" style="font:900 15px Inter;fill:#fff">${i+1}</text><text x="574" y="${y+16}" class="t-b" style="font-size:16px">${esc(s[0])}</text><text x="574" y="${y+38}" class="t-s">${esc(s[1])}</text>`}).join('');
+
+  // 4. gantt
+  const X0=170,WK=46,ph=[['진단',1,2,M,'#166B3A','W2 진단 보고'],['정비',3,8,L,INK,'W8 기준정보 확정'],['재가동',7,12,G,'#fff','W12 핵심 공정 실적 정상화'],['정착',11,16,INK,'#fff','W16 인수인계']];
+  let gs='';
+  for(let w=1;w<=16;w++){const x=X0+(w-1)*WK;gs+=`<rect x="${x}" y="40" width="${WK-2}" height="300" fill="${w%2?'#F5F8F2':'#fff'}"/><text x="${x+WK/2-1}" y="30" text-anchor="middle" style="font:700 13px Inter;fill:${SUB}">W${w}</text>`}
+  ph.forEach((p,i)=>{const y=62+i*70,x=X0+(p[1]-1)*WK,w=(p[2]-p[1]+1)*WK-2;gs+=`<text x="30" y="${y+30}" class="t-b">${esc(p[0])}</text><text x="30" y="${y+52}" class="t-s">${p[1]}~${p[2]}주</text>
+    <rect x="${x}" y="${y+6}" width="${w}" height="40" rx="12" fill="${p[3]}"/>
+    <text x="${x+16}" y="${y+32}" style="font:700 14.5px 'Noto Sans KR';fill:${p[4]}">${esc(p[0])}</text>
+    <path d="M${x+w-4} ${y+56} l8 8 -8 8 -8 -8z" fill="${G}"/><text x="${x+w-16}" y="${y+70}" text-anchor="end" class="t-s" style="font-size:13px">${esc(p[5])}</text>`});
+  gs+=`<line x1="${X0+12*WK-2}" y1="40" x2="${X0+12*WK-2}" y2="350" stroke="${G}" stroke-width="2" stroke-dasharray="6 6"/><text x="${X0+12*WK-8}" y="378" text-anchor="end" class="t-g">핵심 공정 중심이면 12주</text>`;
+  $('gantt').innerHTML=gs;
+
+  // 5. roles
+  const cols=[[40,'우리 공장','결정하고 운영합니다',['현황·요구사항 공유','담당자 지정','최종 결정·운영'],0],
+              [350,'120 PROJECT','공장 편에서 이끕니다',['진단·실행계획','사업계획서 작성 지원','요구사항 정의·PM','검수·인수인계'],1],
+              [660,'공급기업','솔루션을 구축합니다',['MES·설비 연동 개발','설치·시운전','유지보수'],0]];
+  $('roleBoxes').innerHTML=cols.map(c=>{const[x,t,s,li,h]=c;return `<rect x="${x}" y="40" width="260" height="320" rx="20" fill="${h?G:'#fff'}" stroke="${h?G:LN}" stroke-width="2"/>
+    <text x="${x+26}" y="86" style="font:900 22px 'Noto Sans KR';fill:${h?'#fff':INK}">${esc(t)}</text>
+    <text x="${x+26}" y="112" style="font:500 14px 'Noto Sans KR';fill:${h?'rgba(255,255,255,.8)':SUB}">${esc(s)}</text>
+    <line x1="${x+26}" y1="132" x2="${x+234}" y2="132" stroke="${h?'rgba(255,255,255,.3)':LN}"/>
+    ${li.map((l,i)=>`<circle cx="${x+32}" cy="${164+i*46}" r="5" fill="${h?L:G}"/><text x="${x+48}" y="${169+i*46}" style="font:700 15.5px 'Noto Sans KR';fill:${h?'#fff':INK}">${esc(l)}</text>`).join('')}`}).join('')+
+    `<line x1="306" y1="200" x2="344" y2="200" stroke="${SUB}" stroke-width="2.5" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+     <line x1="616" y1="200" x2="654" y2="200" stroke="${SUB}" stroke-width="2.5" marker-start="url(#ar2)" marker-end="url(#ar2)"/>`;
+
+  // 6. method
+  const m3=['기준정보 정비','업무 Rule 정의','매일 보는 데이터'];
+  $('method3').innerHTML=m3.map((t,i)=>{const x=40+i*300,last=i==2;return `<path d="M${x} 40 h250 l30 40 -30 40 h-250 ${i?'l30 -40z':'z'}" fill="${last?G:i?L:M}"/><text x="${x+(i?150:135)}" y="88" text-anchor="middle" style="font:900 19px 'Noto Sans KR';fill:${last?'#fff':INK}">${esc(t)}</text>`}).join('');
+
+  // lightbox
+  const lb=$('lb'),body=$('lbBody');
+  const open=f=>{body.innerHTML='';body.appendChild(f.querySelector('svg').cloneNode(true));$('lbTitle').textContent=f.dataset.title||'';lb.classList.add('on');$('lbClose').focus()};
+  const close=()=>lb.classList.remove('on');
+  document.querySelectorAll('figure').forEach(f=>{f.addEventListener('click',()=>open(f));f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(f)}})});
+  $('lbClose').addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target===lb)close()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+}
+</script>
+</body>
+</html>
